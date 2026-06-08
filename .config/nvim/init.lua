@@ -1,3 +1,6 @@
+vim.g.loaded_ruby_provider = 0
+vim.g.loaded_perl_provider = 0
+
 --      ==========================================
 --      =====      Configuracion global      =====
 --      ==========================================
@@ -6,13 +9,16 @@ vim.opt.number = true               -- Números fijos tradicionales
 vim.opt.showcmd = true              -- Ver comandos a medias
 vim.opt.showmatch = true            -- Parpadeo de paréntesis
 vim.opt.termguicolors = true        -- Colores reales
-vim.opt.relativenumber = false      -- Desactivar relativos
-vim.opt.clipboard = "unnamedplus"   -- Portapapeles compartido (xclip/wl-clipboard)
+vim.opt.relativenumber = false      -- Desactivar relativos :
 vim.opt.encoding = "utf-8"          -- Codificación UTF-8
 vim.opt.mouse = "a"                 -- Activar el ratón
-vim.o.clipboard = 'unnamedplus'
+vim.o.clipboard = "unnamedplus"
+vim.opt.clipboard = "unnamedplus"
 
 
+
+vim.api.nvim_set_keymap('v', 'y', '"+y', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'yy', '"+yy', { noremap = true, silent = true })
 -- Mover líneas con Shift + Flechas
 vim.keymap.set('n', '<S-Down>', ':m .+1<CR>==', { silent = true })
 vim.keymap.set('n', '<S-Up>', ':m .-2<CR>==', { silent = true })
